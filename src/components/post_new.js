@@ -29,9 +29,9 @@ class PostNew extends Component {
           component={this.renderField}
         />
         <Field 
-          label="Tags"
+          label="Categories"
           type="password"
-          name="tags"
+          name="categories"
           component={this.renderField}
         />
         <Field 
@@ -46,6 +46,26 @@ class PostNew extends Component {
   }
 }
 
+function validate(values) {
+  // values - {} containing all values user has entered
+  // values = { title: '...', categories: '', content: '' }
+
+  const errors = {};
+
+  // Validate inputs for 'values'
+  if (!values.title) {
+    errors.title = 'Enter a title!'
+  }
+
+  // values.map ()
+
+  // if errors is empty form is good to go
+  // if errors has *any* props reduxForm assumes form is invalid
+  return errors;
+
+}
+
 export default reduxForm({
+  validate,  // validate: validate
   form: 'PostNewForm'
 })(PostNew);
