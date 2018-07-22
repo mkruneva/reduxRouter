@@ -5,13 +5,14 @@ import { Field, reduxForm } from 'redux-form'; // reduxForm - similar to connect
 class PostNew extends Component {
   renderField(field) {
     console.log(field);
+    const className = `form-group ${field.meta.touched && field.meta.error ? 'has-danger': ''}`
     return (
-      <div className="form-group">
+      <div className={className}>
         <label>{field.label}</label>
         <input type={field.type} className="form-control"
           {...field.input}
         />
-        {field.meta.error}
+        <div className="text-help">{field.meta.touched ? field.meta.error : ''}</div>
       </div>
     )
   }
@@ -62,6 +63,7 @@ function validate(values) {
   // Validate inputs for 'values'
   if (!values.title) {
     errors.title = 'Enter a title!'
+    // has-danger
   }
 
   // values.map ()
