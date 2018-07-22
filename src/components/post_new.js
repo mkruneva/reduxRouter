@@ -34,6 +34,12 @@ class PostNew extends Component {
           name="tags"
           component={this.renderField}
         />
+        <Field 
+          label="Post Content"
+          type="text"
+          name="content"
+          component={this.renderField}
+        />
         </form>
       </div>
     )
