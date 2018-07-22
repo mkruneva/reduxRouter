@@ -4,7 +4,7 @@ import { Field, reduxForm } from 'redux-form'; // reduxForm - similar to connect
 
 class PostNew extends Component {
   renderField(field) {
-    const { meta: { touched, error } } = field;
+    const { meta: { touched, error } } = field; // desctructuring meta from field, touched, error from meta nested object
     const className = `form-group ${touched && error ? 'has-danger': ''}`
     return (
       <div className={className}>
