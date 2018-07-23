@@ -25,9 +25,6 @@ class PostNew extends Component {
     const { handleSubmit } = this.props;
     return (
       <div>
-        <div className="text-xs-right">
-          <NavLink className="btn btn-primary" to='/'>Back to Posts</NavLink>
-        </div>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <Field 
           label="Title"
@@ -48,6 +45,7 @@ class PostNew extends Component {
           component={this.renderField}
         />
         <button type='submit' className="btn btn-primary">Submit</button>
+        <NavLink className="btn btn-danger" to='/'>Cancel</NavLink>
         </form>
       </div>
     )
