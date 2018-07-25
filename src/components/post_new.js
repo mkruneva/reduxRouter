@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form'; // reduxForm - similar to connect , aloows component to talk directly to redux Store
+import { connect } from 'react-redux';
+import { createPost } from '../actions'
+
 
 class PostNew extends Component {
   renderField(field) {
@@ -18,6 +21,7 @@ class PostNew extends Component {
   }
 
   onSubmit(values) {
+    this.props.createPost(values);
     console.log('values ', values);
   }
 
@@ -75,4 +79,6 @@ function validate(values) {
 export default reduxForm({
   validate,  // validate: validate
   form: 'PostNewForm'
-})(PostNew);
+})(
+  connect(null, { createPost })(PostNew)
+);
