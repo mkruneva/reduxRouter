@@ -15,7 +15,9 @@ class PostIndex extends React.Component {
       _.map(this.props.posts, post => {
         if (post.title) {
           return (
-            <li className="list-group-item" key={post.id}>{post.title}</li>
+            <li className="list-group-item" key={post.id}>
+              <NavLink to={`/posts/${post.id}`}>{post.title}</NavLink>
+            </li>
           )
         }
       })
